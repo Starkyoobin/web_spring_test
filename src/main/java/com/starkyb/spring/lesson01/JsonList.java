@@ -4,13 +4,30 @@ import java.util.List;
 import java.util.Map;
 
 public class JsonList {
-	private List<Map<String, String>> list;
-
-	public List<Map<String, String>> getList() {
-		return list;
+	private String title;
+	private String user;
+	private String content;
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String getUser() {
+		return user;
+	}
+	public void setUser(String user) {
+		this.user = user;
+	}
+	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	public void setList(List<Map<String, String>> list) {
-		this.list = list;
-	}
+	
 }
