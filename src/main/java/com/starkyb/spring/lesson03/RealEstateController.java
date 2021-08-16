@@ -10,13 +10,21 @@ import com.starkyb.spring.lesson03.bo.RealEstateBO;
 import com.starkyb.spring.lesson03.model.RealEstate;
 
 @Controller
+@RequestMapping("/lesson03/test01")
 public class RealEstateController {
 	@Autowired
-	private RealEstateBO realEstateBO;
-	
+	private RealEstateBO realEstateBO;	
 	@ResponseBody
-	@RequestMapping("/lesson03/test01/1")
-	public RealEstate test01(@RequestParam("id") int id) {
+	@RequestMapping("/1")
+	public RealEstate selectId(@RequestParam("id") int id) {
 		return realEstateBO.getRealEstate(id);
+	}
+	
+	@Autowired
+	private RealEstateBO rentPriceBO;
+	@ResponseBody
+	@RequestMapping("/2")
+	public RealEstate rentPrice(@RequestParam("rentPrice") int rent) {
+		return rentPriceBO.getRentPrice(rent);
 	}
 }

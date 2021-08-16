@@ -20,4 +20,21 @@
  		WHERE
  			`id` = #{id}
  	</select>
+ 	<select id="selectRentPrice" resultType="com.starkyb.spring.lesson03.model.Realestate"
+ 	parameterType="int">
+ 		SELECT
+ 			`id`
+ 			, `realtorId`
+ 			, `address`
+ 			, `area`
+ 			, `type`
+ 			, `price`
+ 			, `rentPrice`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM
+ 			`real_estate`
+ 		WHERE
+ 			`rentPrice` = #{rentPrice}
+ 	</select>
  </mapper>

@@ -8,4 +8,6 @@ import com.starkyb.spring.lesson03.model.RealEstate;
 @Repository
 public interface RealEstateDAO {
 	public RealEstate selectRealEstate(@Param("id") int id);
+	
+	public RealEstate selectRentPrice(@Param("rentPrice") int rent);
 }
