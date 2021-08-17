@@ -1,5 +1,7 @@
 package com.starkyb.spring.lesson03.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +19,12 @@ public class RealEstateBO {
 	}
 	
 	//월세 조건 select
-	public RealEstate getRentPrice(int rentPrice) {
-		return realEstateDAO.selectRentPrice(rentPrice);
+	public List<RealEstate> getRentPrice(int rent) {
+		return realEstateDAO.selectRentPrice(rent);
 	}
 	
 	//복합조건 select
-	public RealEstate getAreaPrice(int area, int price) {
+	public List<RealEstate> getAreaPrice(int area, int price) {
 		return realEstateDAO.selectAreaPrice(area, price);
 	}
 }

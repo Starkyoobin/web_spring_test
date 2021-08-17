@@ -1,5 +1,7 @@
 package com.starkyb.spring.lesson03;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,21 +20,21 @@ public class RealEstateController {
 	//id로 select하기
 	@ResponseBody
 	@RequestMapping("/1")
-	public RealEstate selectId(@RequestParam("id") int id) {
+	public RealEstate test01_1(@RequestParam("id") int id) {
 		return realEstateBO.getRealEstate(id);
 	}
 	
 	//월세 조건 select
 	@ResponseBody
 	@RequestMapping("/2")
-	public RealEstate rentPrice(@RequestParam("rentPrice") int rentPrice) {
-		return realEstateBO.getRentPrice(rentPrice);
+	public List<RealEstate> test01_2(@RequestParam("rent") int rent) {
+		return realEstateBO.getRentPrice(rent);
 	}
 	
 	//복합조건 select
 	@ResponseBody
 	@RequestMapping("/3")
-	public RealEstate areaPrice(@RequestParam("area") int area, @RequestParam("price") int price) {
+	public List<RealEstate> test01_3(@RequestParam("area") int area, @RequestParam("price") int price) {
 		return realEstateBO.getAreaPrice(area, price);
 	}
 }

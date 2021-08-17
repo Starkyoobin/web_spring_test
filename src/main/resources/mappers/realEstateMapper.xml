@@ -37,7 +37,8 @@
  		FROM
  			`real_estate`
  		WHERE
- 			`rentPrice` = #{rentPrice}
+ 			<![CDATA[`rentPrice` < #{rent}]]>
+ 			
  	</select>
  	<!-- 복합조건 select -->
  	<select id="selectAreaPrice" resultType="com.starkyb.spring.lesson03.model.RealEstate"
@@ -54,7 +55,15 @@
  			, `updatedAt`
  		FROM
  			`real_estate`
+ 		WHERE
+ 		<![CDATA[
+ 			`area` >= #{area}
+ 		and
+ 			`price` <= #{price}
+ 		]]>
  		ORDER BY
  			`createdAt` DESC
+ 			
+ 		
  	</select>
  </mapper>
