@@ -66,4 +66,46 @@
  			
  		
  	</select>
+ 	<!-- 객체로 insert -->
+ 	<insert id="insertRealEstateAsObject" parameterType="com.starkyb.spring.lesson03.model.RealEstate">
+ 		INSERT INTO `real_estate`
+ 		(
+ 			`realtorId`
+ 			, `address`
+ 			, `area`
+ 			, `type`
+ 			, `price`
+ 			, `createdAt`
+ 			, `updatedAt`	
+ 		) VALUES (
+ 			#{realtorId}
+ 			, #{address}
+ 			, #{area}
+ 			, #{type}
+ 			, #{price}
+ 			, now()
+ 			, now()
+ 		)
+ 	</insert>
+ 	<!-- field로 insert -->
+ 	<insert id="insertRealEstate" parameterType="map">
+ 		INSERT INTO `real_estate`
+ 		(
+ 			`realtorId`
+ 			, `address`
+ 			, `area`
+ 			, `type`
+ 			, `price`
+ 			, `createdAt`
+ 			, `updatedAt`	
+ 		) VALUES (
+ 			#{realtorId}
+ 			, #{address}
+ 			, #{area}
+ 			, #{type}
+ 			, #{price}
+ 			, now()
+ 			, now()
+ 		)
+ 	</insert>
  </mapper>

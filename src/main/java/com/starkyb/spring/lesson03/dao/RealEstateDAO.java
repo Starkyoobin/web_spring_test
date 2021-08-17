@@ -16,4 +16,14 @@ public interface RealEstateDAO {
 	//복합조건 select
 	public List<RealEstate> selectAreaPrice(@Param("area") int area, @Param("price") int price);
 	
+	//객체로 insert
+	public int insertRealEstateAsObject(RealEstate realEstate);
+	//field로 insert
+	public int insertRealEstate(
+			@Param("realtorId") int realtorId
+			, @Param("address") String address
+			, @Param("area") int area
+			, @Param("type") String type
+			, @Param("price") int price
+			, @Param("rentPrice") int rentPrice);
 }
