@@ -118,4 +118,12 @@
  		WHERE
  			`id` = #{id}
  	</update>
+ 	
+ 	<!-- delete -->
+ 	<delete id="deleteRealEstate" parameterType="int">
+ 		DELETE FROM
+ 			`real_estate`
+ 		WHERE
+ 			`id` = #{id}
+ 	</delete>
  </mapper>

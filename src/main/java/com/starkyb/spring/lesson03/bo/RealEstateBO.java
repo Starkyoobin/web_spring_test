@@ -41,4 +41,9 @@ public class RealEstateBO {
 	public int updateRealEstateById(int id, int price) {
 		return realEstateDAO.updateRealEstateByid(id, price);
 	}
+	
+	//delete
+	public int deleteRealEstate(int id) {
+		return realEstateDAO.deleteRealEstate(id);
+	}
 }

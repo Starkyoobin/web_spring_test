@@ -69,4 +69,12 @@ public class RealEstateController {
 		int count = realEstateBO.updateRealEstateById(id, price);
 		return "수정 성공 : " + count;
 	}
+	
+	//delete
+	@ResponseBody
+	@RequestMapping("/test04")
+	public String test04(@RequestParam("id") int id) {
+		int count = realEstateBO.deleteRealEstate(id);
+		return "삭제 성공 : " + count;
+	}
 }
