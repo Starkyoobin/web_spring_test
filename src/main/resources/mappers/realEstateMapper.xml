@@ -108,4 +108,14 @@
  			, now()
  		)
  	</insert>
+ 	
+ 	<!-- update -->
+ 	<update id="updateRealEstateByid" parameterType="int">
+ 		UPDATE
+ 			`real_estate`
+ 		SET
+ 			`price` = #{price}
+ 		WHERE
+ 			`id` = #{id}
+ 	</update>
  </mapper>

@@ -61,4 +61,12 @@ public class RealEstateController {
 		int count = realEstateBO.addRealEstate(realtorId, "썅떼빌리버 오피스텔 814호", 45, "월세", 100000, 120);
 		return "입력 성공 : " + count;
 	}
+	
+	//update
+	@ResponseBody
+	@RequestMapping("/test03")
+	public String test03(@RequestParam("id") int id, @RequestParam("price") int price) {
+		int count = realEstateBO.updateRealEstateById(id, price);
+		return "수정 성공 : " + count;
+	}
 }
