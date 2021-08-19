@@ -41,6 +41,6 @@ public class SellerController {
 		model.addAttribute("result", seller);
 		model.addAttribute("subject", "판매자 정보");
 		
-		return "lesson04/test01/sellerInfo";
+		return "lesson04/sellerInfo";
 	}
 }

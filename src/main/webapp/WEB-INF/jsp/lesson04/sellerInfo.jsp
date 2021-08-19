@@ -13,10 +13,10 @@
 </head>
 <body>
 	<div class="container">
-		<h2>#{subject }</h2>
-		<img url=${result.profileImageUrl } width="200">
-		<span class="display-1">#{result.nickname }</span>
-		<span class="text-warning">#{result.temperature }</span>
+		<h2>${subject }</h2>
+		<img src=${result.profileImageUrl } width="200"> <br>
+		<span class="display-4">${result.nickname }</span> <br>
+		<span class="text-warning"><b>${result.temperature }</b></span>
 	</div>
 </body>
 </html>

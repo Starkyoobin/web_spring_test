@@ -21,11 +21,14 @@
  		) 		
  	</insert>
  	<!-- seller 출력 -->
- 	<select id="selectLastSeller" parameterType="com.starkyb.spring.lesson04.model.Seller">
+ 	<select id="selectLastSeller" resultType="com.starkyb.spring.lesson04.model.NewSeller">
  		SELECT
- 			`profileImageUrl`
+ 			`id`
+ 			, `profileImageUrl`
  			, `nickname`
  			, `temperature`
+ 			, `createdAt`
+ 			, `updatedAt`
  		FROM
  			`seller`
  		ORDER BY `id` DESC

@@ -3,12 +3,18 @@ package com.starkyb.spring.lesson04.model;
 import java.util.Date;
 
 public class NewSeller {
+	private int id;
 	private String nickname;
 	private String profileImageUrl;
 	private double temperature;
 	private Date createdAt;
-	private Date updatedAt;
-	
+	private Date updatedAt;	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNickname() {
 		return nickname;
 	}
