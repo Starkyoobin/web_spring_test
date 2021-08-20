@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>판매자정보</title>
+<title>공인중개사 정보</title>
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -13,10 +13,30 @@
 </head>
 <body>
 	<div class="container">
-		<h2>${subject }</h2>
-		<img src=${result.profileImageUrl } width="200"> <br>
-		<span class="display-4">${result.nickname }</span> <br>
-		<h3 class="text-warning"><b>${result.temperature }</b></h3>
+		<h1>공인중개사 정보</h1>
+		
+		<table class="table">
+			<tr>
+				<th>ID</th>
+				<td>${result.id }</td>
+			</tr>
+			<tr>
+				<th>상호명</th>
+				<td>${result.office }</td>
+			</tr>
+			<tr>
+				<th>전화번호</th>
+				<td>${result.phoneNumber }</td>
+			</tr>
+			<tr>
+				<th>주소</th>
+				<td>${result.address }</td>
+			</tr>
+			<tr>
+				<th>등급</th>
+				<td>${result.grade }</td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>

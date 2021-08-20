@@ -15,4 +15,6 @@ public interface SellerDAO {
 	
 	//seller 출력
 	public NewSeller selectLastSeller();
+	
+	public NewSeller selectSeller(@Param("id") int id);
 }

@@ -21,7 +21,8 @@
  		) 		
  	</insert>
  	<!-- seller 출력 -->
- 	<select id="selectLastSeller" resultType="com.starkyb.spring.lesson04.model.NewSeller">
+ 	<select id="selectLastSeller" resultType="com.starkyb.spring.lesson04.model.NewSeller"
+ 	parameterType="int">
  		SELECT
  			`id`
  			, `profileImageUrl`
@@ -32,6 +33,21 @@
  		FROM
  			`seller`
  		ORDER BY `id` DESC
-	 	LIMIT 1
+ 		LIMIT 1
+ 	</select>
+ 	
+ 	<select id="selectSeller" resultType="com.starkyb.spring.lesson04.model.NewSeller"
+ 	parameterType="int">
+ 		SELECT
+ 			`id`
+ 			, `profileImageUrl`
+ 			, `nickname`
+ 			, `temperature`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM
+ 			`seller`
+ 		WHERE
+ 			`id` = #{id}
  	</select>
  </mapper>

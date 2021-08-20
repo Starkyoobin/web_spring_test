@@ -35,9 +35,14 @@ public class SellerController {
 	}
 	
 	//seller 출력
-	@GetMapping("/test01/2")
-	public String lastUser(Model model) {
-		NewSeller seller = sellerBO.getLastSeller();
+	@GetMapping("/test01/seller_info")
+	public String lastUser(Model model, @RequestParam(value = "id", required = false) Integer id) {
+		NewSeller seller = null;
+		if(id == null) {
+			seller = sellerBO.getLastSeller();			
+		} else {
+			seller = sellerBO.getSeller(id);
+		}
 		model.addAttribute("result", seller);
 		model.addAttribute("subject", "판매자 정보");
 		
