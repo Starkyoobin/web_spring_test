@@ -13,16 +13,16 @@
 	<c:set var="number2">3</c:set>
 	<h4>첫번째 숫자 : ${number1 }</h4>
 	<h4>두번째 숫자 : ${number2 }</h4>
-	
+	<hr>
 	<h2>2. JSTL core 연산</h2>
 	<h4>더하기 : ${number1 + number2 }</h4>
 	<h4>빼기 : ${number1 - number2 }</h4>
 	<h4>곱하기 : ${number1 * number2 }</h4>
 	<h4>나누기 : ${number1 / number2 }</h4>
-	
+	<hr>
 	<h2>3. JSTL core out</h2>
 	<c:out value="<title>core out</title>" />
-	
+	<hr>
 	<h2>4. JSTL core if</h2>
 	<c:choose>
 		<c:when test="${(number1 + number2) / 2 >= 10 }">
