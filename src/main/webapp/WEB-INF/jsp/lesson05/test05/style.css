@@ -1,0 +1,15 @@
+@charset "UTF-8";
+header{
+	height: 150px;
+	width: 200px;
+}
+section{
+	width: 100%;
+	height: 450px;
+}
+footer{
+	height: 120px;
+}
+.copryright{
+	font-size: 10px;
+}

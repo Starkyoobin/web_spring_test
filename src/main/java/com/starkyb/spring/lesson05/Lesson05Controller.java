@@ -165,4 +165,12 @@ public class Lesson05Controller {
 		
 		return "lesson05/test04";
 	}
+	
+	@GetMapping("/test05/1")
+	public String test05_1() {
+		
+		
+		return "lesson05/test05/main";
+	}
+	
 }
