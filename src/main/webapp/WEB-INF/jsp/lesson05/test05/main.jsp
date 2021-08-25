@@ -16,6 +16,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
+	<fmt:setLocale value="ko_KR" scope="session" />
 	<div class="container mt-3">
 		<div class="d-flex">
 			<div class="mr-5">
@@ -37,14 +38,38 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>날짜</td>
-							<td>날씨</td>
-							<td>기온</td>
-							<td>강수량</td>
-							<td>미세먼지</td>
-							<td>풍속</td>
-						</tr>
+						<c:forEach var="result" items="${weatherHistory }">
+							<fmt:parseDate value="${result.date }" pattern="yyyy-MM-dd" var="date" />
+							<tr>
+								<td><fmt:formatDate value="${date }" pattern="yyyy년 MM월 dd일" /></td>
+								<c:choose>
+									<c:when test="${result.weather == '비' }">
+										<td>
+											<img alt="비" src="http://marondal.com/material/images/dulumary/web/jstl/rainy.jpg">
+										</td>
+									</c:when>
+									<c:when test="${result.weather == '흐림' }">
+										<td>
+											<img alt="흐림" src="http://marondal.com/material/images/dulumary/web/jstl/cloudy.jpg">
+										</td>
+									</c:when>
+									<c:when test="${result.weather == '맑음' }">
+										<td>
+											<img alt="맑음" src="http://marondal.com/material/images/dulumary/web/jstl/sunny.jpg">
+										</td>
+									</c:when>
+									<c:otherwise>
+										<td>
+											<img alt="구름조금" src="http://marondal.com/material/images/dulumary/web/jstl/partlyCloudy.jpg">
+										</td>
+									</c:otherwise>
+								</c:choose>
+								<td>${result.temperatures }°C</td>
+								<td>${result.precipitation }mm</td>
+								<td>${result.microDust }</td>
+								<td>${result.windSpeed }km/h</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</section>

@@ -13,7 +13,7 @@ public class WeatherHistoryBO {
 	@Autowired
 	private WeatherHistoryDAO weatherHistoryDAO;
 	
-	public List<WeatherHistory> selectWeatherHistory() {
+	public List<WeatherHistory> getWeatherHistory() {
 		return weatherHistoryDAO.selectWeatherHistory();
 	}
 }
