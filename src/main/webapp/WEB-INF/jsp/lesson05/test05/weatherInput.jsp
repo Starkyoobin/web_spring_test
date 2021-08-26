@@ -21,7 +21,43 @@
 				<jsp:include page="menu.jsp"></jsp:include>
 			</div>
 			<section>
-				
+				<h2>날씨 입력</h2>
+				<form method="get" action="/lesson05/test05/1">
+					<div class="d-flex">
+						<label>날짜</label> <input type="text" name="date" class="col-6 form-control">
+						<label>날씨</label>
+						<select class="form-control col-2" name="weather">
+							<option value="sunny">맑음</option>
+							<option value="partlyCloudy">구름조금</option>
+							<option value="cloudy">흐림</option>
+							<option value="rainy">비</option>
+						</select>
+						<label>미세먼지</label>
+						<select class="form-control col-2" name="microDust">
+							<option value="good">좋음</option>
+							<option value="normal">보통</option>
+							<option value="bad">나쁨</option>
+						</select>
+					</div>
+					<div class="d-flex mb-5">
+						<label>기온</label>
+						<div class="input-group">
+							<input class="form-control col-3" type="text" name="temperatures">
+							<span class="input-group-addon">°C</span>
+						</div>
+						<label>강수량</label>
+						<div class="input-group">
+							<input class="form-control col-3" type="text" name="temperature">
+							<span class="input-group-addon">mm</span>
+						</div>
+						<label>풍속</label>
+						<div class="input-group">
+							<input class="form-control col-3" type="text" name="temperature">
+							<span class="input-group-addon">km/h</span>
+						</div>
+					</div>
+					<input type="submit" class="btn btn-success" value="저장">				
+				</form>
 			</section>
 		</div>
 		<jsp:include page="footer.jsp"></jsp:include>

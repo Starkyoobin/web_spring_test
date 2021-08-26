@@ -14,4 +14,25 @@
  		FROM
  			`weatherhistory`
  	</select>
+ 	<insert id="insertWeatherHistory" parameterType="com.starkyb.spring.lesson05.model.WeatherHistory">
+ 		INSERT INTO `weatherhistory`
+ 		(
+ 			`date`
+ 			, `weather`
+ 			, `temperatures`
+ 			, `precipitation`
+ 			, `microDust`
+ 			, `windSpeed`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		) VALUES (
+ 			#{date}
+ 			, #{weather}
+ 			, #{temperatures}
+ 			, #{precipitation}
+ 			, #{windSpeed}
+ 			, now()
+ 			, now()
+ 		)
+ 	</insert>
  </mapper>
