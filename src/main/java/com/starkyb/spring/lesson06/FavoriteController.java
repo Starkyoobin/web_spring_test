@@ -46,7 +46,7 @@ public class FavoriteController {
 	
 	@GetMapping("/favorite_info")
 	public String favoriteInfo(Model model) {
-		String web = favoriteBO.getFavorite();
+		List<Favorite> web = favoriteBO.getFavorite();
 		model.addAttribute("web", web);
 		
 		return "lesson06/favoriteInfo";

@@ -34,9 +34,9 @@
 					alert("주소를 입력하세요");
 					return;
 				}
-				if(url.startsWith("http://")) {
+				//if(url.startsWith("http://")) {
 					
-				}
+				//}
 				
 				$.ajax({
 					type:"post",
