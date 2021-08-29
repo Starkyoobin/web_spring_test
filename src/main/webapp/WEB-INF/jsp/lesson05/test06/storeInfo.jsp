@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>날씨 정보 페이지</title>
+<title>우리동네 가게 리스트 페이지</title>
 <link rel="stylesheet" href="/lesson05/test06/css/style.css" type="text/css">
 <!-- Bootstrap CDN -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -17,17 +17,21 @@
 </head>
 <body>
 	<div class="container">
-		<header class="bg-primary">
-			<h2>배탈의 민족</h2>
-		</header>
-		<section>
-		
+		<jsp:include page="header.jsp"></jsp:include>
+		<section class="mt-2">
+			<span class="pageName">우리동네 가게</span>
+			<c:forEach var="store" items="${stores }">
+				<div class="storeBox mt-2 mb-3">
+					<span class="storeName"><b>${store.name }</b></span> <br>
+					<span>
+					전화번호 : ${store.phoneNumber } <br>
+					주소 : ${store.address }
+					</span>
+				</div>
+			</c:forEach>
 		</section>
 		<hr>
-		<footer>
-			<span>(주)우와한형제</span>
-			<span>고객센터 : 1500-1500</span>
-		</footer>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>
