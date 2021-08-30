@@ -20,4 +20,14 @@ public class FavoriteBO {
 	public List<Favorite> getFavorite() {
 		return favoriteDAO.selectFavorite();
 	}
+	
+	public boolean isDuplication(String url) {
+		int count = favoriteDAO.checkUrl(url);
+		
+		if(count >= 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

@@ -24,4 +24,11 @@ public class JstlStoreController {
 		
 		return "lesson05/test06/storeInfo";
 	}
+	
+	@GetMapping("/reviews")
+	public String reviews() {
+		
+		
+		return "lesson05/test06/reviewInfo";
+	}
 }

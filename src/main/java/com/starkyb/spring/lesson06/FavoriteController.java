@@ -51,4 +51,19 @@ public class FavoriteController {
 		
 		return "lesson06/favoriteInfo";
 	}
+	
+	@PostMapping("/is_duplication")
+	@ResponseBody
+	public Map<String, Boolean> isDuplication(
+			@RequestParam("url") String url) {
+		Map<String,Boolean> result = new HashMap<>();
+		
+		if(favoriteBO.isDuplication(url)) {
+			result.put("isDuplication", true);
+		} else {
+			result.put("isDuplication", false);
+		}
+		
+		return result;
+	}
 }

@@ -17,6 +17,7 @@
  			, now()
  		)
  	</insert>
+ 	
  	<select id="selectFavorite" resultType="com.starkyb.spring.lesson06.model.Favorite">
  		SELECT
  			`id`
@@ -26,5 +27,14 @@
  			, `updatedAt`
  		FROM
  			`web`
+ 	</select>
+ 	
+ 	<select id="checkUrl" resultType="int" parameterType="string">
+ 		SELECT
+ 			count(*)
+ 		FROM
+ 			`web`
+ 		WHERE
+ 			`url` = #{url};
  	</select>
  </mapper>

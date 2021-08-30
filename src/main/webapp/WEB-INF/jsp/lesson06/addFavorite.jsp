@@ -14,7 +14,10 @@
 	<div class="container">
 		<h2>즐겨찾기 추가하기</h2>
 		<label>제목</label> <input type="text" name="name" id="nameInput" class="form-control">
-		<label>주소</label> <input type="text" name="url" id="urlInput" class="form-control">
+		<div class="d-flex">
+			<label>주소</label> <input type="text" name="url" id="urlInput" class="form-control">
+			<button type="button" id="urlCheckBtn" class="btn btn-info ml-3">중복확인</button>		
+		</div>
 		<button class="btn btn-success form-control" id="addBtn">추가</button>		
 	</div>
 	
@@ -34,9 +37,11 @@
 					alert("주소를 입력하세요");
 					return;
 				}
-				//if(url.startsWith("http://")) {
-					
-				//}
+				// httP:// 또는 http:// 가 아니면 잘못된 url
+				if(!(url.startsWith("http://") || url.startsWith("http://"))) {
+					alert("잘못된 url입니다.");
+					return;
+				}
 				
 				$.ajax({
 					type:"post",
@@ -45,8 +50,8 @@
 					success:function(data) {
 						if(data.result == "success") {
 							window.location.href='/lesson06/favorite_info';
-						} else {
-							alert("추가 실패");
+						} else{
+							alert("삽입 실패");
 						}
 					},
 					error:function(e) {
@@ -55,6 +60,31 @@
 				});
 				
 			});
+			
+			$("#urlCheckBtn").on("click", function() {
+				var url = $("#urlInput").val();
+				
+				if(url == null || url == "") {
+					alert("주소를 입력하세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"post",
+					url:"/lesson06/is_duplication",
+					data:{"url":url},
+					success:function(data) {
+						if(data.isDuplication) {
+							alert("중복입니다");
+						} else{
+							alert("중복이 아닙니다");
+						}
+					},
+					error:function(e) {
+						alert("Error");
+					}
+				})
+			})
 		});
 	</script>
 </body>
