@@ -18,11 +18,15 @@
 			<label>주소</label> <input type="text" name="url" id="urlInput" class="form-control">
 			<button type="button" id="urlCheckBtn" class="btn btn-info ml-3">중복확인</button>		
 		</div>
+		<div class="text-danger d-none" id="duplicateDiv">중복된 url입니다</div>
+		<div class="text-success d-none" id="noneDuplicateDiv">저장 가능한 url 입니다</div>
 		<button class="btn btn-success form-control" id="addBtn">추가</button>		
 	</div>
 	
 	<script>
 		$(document).ready(function() {
+			var isChecked = false;
+			var duplicate = true;
 			$("#addBtn").on("click", function(e) {
 				e.preventDefault();
 				
@@ -40,6 +44,18 @@
 				// httP:// 또는 http:// 가 아니면 잘못된 url
 				if(!(url.startsWith("http://") || url.startsWith("http://"))) {
 					alert("잘못된 url입니다.");
+					return;
+				}
+				
+				//중복 체크 여부 유효성 검사
+				if(!isChecked) {
+					alert("중복체크를 진행해주세요.");
+					return;
+				}
+				
+				//이름이 중복된 경우
+				if(isDuplicate) {
+					alert("중복된 url은 입력할 수 없습니다.");
 					return;
 				}
 				
@@ -74,10 +90,15 @@
 					url:"/lesson06/is_duplication",
 					data:{"url":url},
 					success:function(data) {
+						isChecked = true;
 						if(data.isDuplication) {
-							alert("중복입니다");
-						} else{
-							alert("중복이 아닙니다");
+							isDuplicate = true;
+							$("#duplicateDiv").removeClass("d-none");
+							$("#noneDuplicateDiv").addClass("d-none");
+						} else {
+							isDuplicate = false;
+							$("#noneDuplicateDiv").removeClass("d-none");
+							$("#duplicateDiv").addClass("d-none");
 						}
 					},
 					error:function(e) {

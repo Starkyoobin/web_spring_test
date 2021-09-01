@@ -30,4 +30,8 @@ public class FavoriteBO {
 			return false;
 		}
 	}
+	
+	public int deleteFavorite(int id) {
+		return favoriteDAO.deleteFavorite(id);
+	}
 }

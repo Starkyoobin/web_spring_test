@@ -37,4 +37,12 @@
  		WHERE
  			`url` = #{url};
  	</select>
+ 	
+ 	<delete id="deleteFavorite" parameterType="int">
+ 		DELETE
+ 		FROM
+ 			`web`
+ 		WHERE
+ 			`id` = #{id};
+ 	</delete>
  </mapper>

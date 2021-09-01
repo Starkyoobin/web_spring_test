@@ -22,18 +22,46 @@
 					<th>No.</th>
 					<th>이름</th>
 					<th>주소</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="web" items="${results }" varStatus="status">
 					<tr>
-						<th>${status.count }</th>
-						<th>${web.name }</th>
-						<th><a href="${web.url }">${web.url }</a></th>
+						<td>${status.count }</td>
+						<td>${web.name }</td>
+						<td><a href="${web.url }">${web.url }</a></td>
+						<td><button type="button" class="btn btn-danger btn-sm deleteBtn" data-favorite-id="${web.id }">삭제</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$(".deleteBtn").on("click", function(e) {
+				//지금 이벤트가 발생한 객체
+				//클릭된 버튼 객체
+				var favoriteId = $(this).data("favorite-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/lesson06/favorite_delete",
+					data:{"favoriteId":favoriteId},
+					success:function(data) {
+						if(data.result == "success") {
+							location.reload("/lesson06/favorite_info");
+						} else {
+							alert("삭제 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>
