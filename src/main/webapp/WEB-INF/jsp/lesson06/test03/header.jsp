@@ -7,8 +7,8 @@
         <ul class="nav nav-fill">
             <li class="nav-item"><a class="nav-link" href="#">팬션소개</a></li>
             <li class="nav-item"><a class="nav-link" href="#">객실보기</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">예약안내</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">커뮤니티</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">예약하기</a></li>
+            <li class="nav-item"><a class="nav-link" href="/lesson06/booking_info">예약목록</a></li>
         </ul>
     </nav>
 </header>
