@@ -19,4 +19,25 @@
  		DELETE FROM `booking`
  		WHERE `id` = #{id};
  	</delete>
+ 	
+ 	<insert id="insertBooking" parameterType="com.starkyb.spring.lesson06.model.Booking">
+ 		INSERT INTO `booking`
+ 		(
+ 			`name`
+ 			, `headcount`
+ 			, `day`
+ 			, `date`
+ 			, `phoneNumber`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		) VALUES (
+ 			#{name}
+ 			, #{date}
+ 			, #{day}
+ 			, #{headcount}
+ 			, #{phoneNumber}
+ 			, now()
+ 			, now()
+ 		);
+ 	</insert>
  </mapper>

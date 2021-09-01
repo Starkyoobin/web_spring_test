@@ -18,7 +18,80 @@
 	<div class="wrap">
 		<jsp:include page="header.jsp"></jsp:include>
 		
+		<section class="d-flex mt-3">
+			<div class="col-3"></div>
+			<div class="col-6 justify-content-center">
+				<h3 class="text-center">예약하기</h3>
+				<label>이름</label>
+				<input type="text" class="form-control" id="nameInput">
+				<label>예약날짜</label>
+				<input type="text" class="form-control" id="dateInput">
+				<label>숙박일수</label>
+				<input type="text" class="form-control" id="dayInput">
+				<label>숙박인원</label>
+				<input type="text" class="form-control" id="headcountInput">
+				<label>전화번호</label>
+				<input type="text" class="form-control" id="phoneNumberInput">
+				
+				<button id="addBtn" type="button" class="mt-3 form-control btn btn-warning">예약하기</button>			
+			</div>
+			<div class="col-3"></div>
+		</section>
+		
 		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$("#addBtn").on("click", function(e) {
+				var	name = $("#nameInput").val();
+				var	date = $("#dateInput").val();
+				var	day = $("#dayInput").val();
+				var	headcount = $("#headcountInput").val();
+				var	phoneNumber = $("#phoneNumberInput").val();
+				
+				if(name == null || name == "") {
+					alert("이름을 입력하세요");
+					return;
+				}
+				
+				if(date == null || date == "") {
+					alert("예약날짜 입력하세요");
+					return;
+				}
+				
+				if(day == null || day == "") {
+					alert("숙박일수를 입력하세요");
+					return;
+				}
+				
+				if(headcount == null || headcount == "") {
+					alert("인원수를 입력하세요");
+					return;
+				}
+				
+				if(phoneNumber == null || phoneNumber == "") {
+					alert("전화번호를 입력하세요");
+					return;
+				}
+				
+				$.ajax({
+					type:"get",
+					url:"/lesson06/add_booking",
+					data:{"name":name, "date":date, "day":day, "headcount":headcount, "phoneNumber":phoneNumber},
+					success:function(data) {
+						if(data.result == "success") {
+							location.href = "/lesson06/booking_info";
+						} else {
+							alert("삽입 실패");
+						}
+					},
+					error:function(e) {
+						alert("error");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>

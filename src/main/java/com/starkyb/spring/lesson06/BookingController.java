@@ -41,4 +41,30 @@ public class BookingController {
 		
 		return result;
 	}
+	
+	@GetMapping("/add_booking_view")
+	public String addBookingView() {
+		return "lesson06/test03/addBooking";
+	}
+	
+	@GetMapping("/add_booking")
+	@ResponseBody
+	public Map<String, Object> Booking(
+			@RequestParam("name") String name
+			, @RequestParam("date") String date
+			, @RequestParam("day") int day
+			, @RequestParam("headcount") int headcount
+			, @RequestParam("phoneNumber") String phoneNumber) {
+		int count = bookingBO.addBooking(name, date, day, headcount, phoneNumber);
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		if(count == 1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+	}
 }
