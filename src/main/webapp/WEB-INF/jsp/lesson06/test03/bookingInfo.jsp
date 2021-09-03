@@ -42,10 +42,10 @@
 							<td>${booking.phoneNumber }</td>
 							<td>
 								<c:choose>
-									<c:when test="${booking.state == '대기중'}">
+									<c:when test="${booking.state eq '대기중'}">
 										<span class="text-info">${booking.state }</span>
 									</c:when>
-									<c:when test="${booking.state == '확정'}">
+									<c:when test="${booking.state eq '확정'}">
 										<span class="text-success">${booking.state }</span>
 									</c:when>
 									<c:otherwise>
@@ -71,9 +71,13 @@
 				$.ajax({
 					type:"get",
 					url:"/lesson06/booking_delete",
-					data:{"bookingId":bookingId},
+					data:{"id":bookingId},
 					success:function(data) {
-						location.reload();
+						if(data.result == "success") {
+							location.reload();							
+						} else {
+							alert("삭제 실패");
+						}
 					},
 					error:function(e) {
 						alert("error");

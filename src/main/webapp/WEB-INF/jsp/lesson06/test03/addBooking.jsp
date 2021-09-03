@@ -13,6 +13,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -25,7 +27,7 @@
 				<label>이름</label>
 				<input type="text" class="form-control" id="nameInput">
 				<label>예약날짜</label>
-				<input type="text" class="form-control" id="dateInput">
+				<input type="text" class="form-control" id="datepicker">
 				<label>숙박일수</label>
 				<input type="text" class="form-control" id="dayInput">
 				<label>숙박인원</label>
@@ -43,9 +45,14 @@
 	
 	<script>
 		$(document).ready(function() {
+			$("#datepicker").datepicker({
+				dateFormat:"yy-m-d",
+				minDate:0
+			});
+			
 			$("#addBtn").on("click", function(e) {
 				var	name = $("#nameInput").val();
-				var	date = $("#dateInput").val();
+				var	date = $("#datepicker").val();
 				var	day = $("#dayInput").val();
 				var	headcount = $("#headcountInput").val();
 				var	phoneNumber = $("#phoneNumberInput").val();
@@ -64,9 +71,17 @@
 					alert("숙박일수를 입력하세요");
 					return;
 				}
+				if(isNaN(day)) {
+					alert("숙박일수는 숫자만 입력가능합니다");
+					return;
+				}
 				
 				if(headcount == null || headcount == "") {
 					alert("인원수를 입력하세요");
+					return;
+				}
+				if(isNaN(headcount)) {
+					alert("인원수는 숫자만 입력가능합니다");
 					return;
 				}
 				

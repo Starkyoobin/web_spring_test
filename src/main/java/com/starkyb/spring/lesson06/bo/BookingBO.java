@@ -27,6 +27,6 @@ public class BookingBO {
 			, int day
 			, int headcount
 			, String phoneNumber) {
-		return bookingDAO.insertBooking(name, date, day, headcount, phoneNumber);
+		return bookingDAO.insertBooking(name, date, day, headcount, phoneNumber, "대기중");
 	}
 }

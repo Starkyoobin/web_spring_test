@@ -49,7 +49,7 @@ public class BookingController {
 	
 	@GetMapping("/add_booking")
 	@ResponseBody
-	public Map<String, Object> Booking(
+	public Map<String, String> Booking(
 			@RequestParam("name") String name
 			, @RequestParam("date") String date
 			, @RequestParam("day") int day
@@ -57,7 +57,7 @@ public class BookingController {
 			, @RequestParam("phoneNumber") String phoneNumber) {
 		int count = bookingBO.addBooking(name, date, day, headcount, phoneNumber);
 		
-		Map<String, Object> result = new HashMap<>();
+		Map<String, String> result = new HashMap<>();
 		
 		if(count == 1) {
 			result.put("result", "success");
@@ -66,5 +66,12 @@ public class BookingController {
 		}
 		
 		return result;
+	}
+	
+	@GetMapping("/homepage")
+	public String print(Model model) {
+		model.addAttribute("result", bookingBO.getBooking());
+		
+		return "lesson06/test03/main";
 	}
 }

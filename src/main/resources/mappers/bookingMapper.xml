@@ -11,6 +11,8 @@
  			, `headcount`
  			, `phoneNumber`
  			, `state`
+ 			, `createdAt`
+ 			, `updatedAt`
  		FROM
  			`booking`;
  	</select>
@@ -20,14 +22,15 @@
  		WHERE `id` = #{id};
  	</delete>
  	
- 	<insert id="insertBooking" parameterType="com.starkyb.spring.lesson06.model.Booking">
+ 	<insert id="insertBooking" parameterType="map">
  		INSERT INTO `booking`
  		(
  			`name`
- 			, `headcount`
- 			, `day`
  			, `date`
+ 			, `day`
+ 			, `headcount`
  			, `phoneNumber`
+ 			, `state`
  			, `createdAt`
  			, `updatedAt`
  		) VALUES (
@@ -36,8 +39,17 @@
  			, #{day}
  			, #{headcount}
  			, #{phoneNumber}
+ 			, #{state}
  			, now()
  			, now()
  		);
  	</insert>
+ 	
+ 	<select id="selectBookingCheck" resultType="map">
+ 		SELECT
+ 			`name`
+ 			`phoneNumber`
+ 		FROM
+ 			`booking`;
+ 	</select>
  </mapper>
